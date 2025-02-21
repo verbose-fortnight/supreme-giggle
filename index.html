@@ -16,7 +16,14 @@
      <script src="
      https://telegram.org/js/telegram-web-app.js"></script>
      <script>
-      Telegram.WebApp.MainButton.setParams({text: 'Main Button'});
+      // Show main button
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Main Button'
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.showAlert('Main Button was clicked')
+        });	
+        Telegram.WebApp.MainButton.show();
      </script>
   </body>
 </html>
