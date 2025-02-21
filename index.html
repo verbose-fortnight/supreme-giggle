@@ -12,93 +12,35 @@
             padding: 20px;
             min-height: 100vh;
         }
-
         p {
             color: var(--tg-theme-link-color);
             font-size: 17px;
-            margin-bottom: 20px;
-        }
-
-        .add-btn {
-            /* Dimensions */
-            height: 44px;
-            min-width: 120px;
-            padding: 0 20px;
-            
-            /* Style */
-            background: var(--tg-theme-button-color, #2481cc);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            border: none;
-            border-radius: 10px;
-            
-            /* Typography */
-            font-family: inherit;
-            font-size: 17px;
-            font-weight: 500;
-            line-height: 44px;
-            
-            /* Effects */
-            cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        .add-btn:active {
-            transform: scale(0.96);
-        }
-
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
-            padding: 0 20px;
-        }
-
-        /* For native-like bottom positioning */
-        @media (max-height: 500px) {
-            .btn-container {
-                position: static;
-                margin-top: 20px;
-            }
         }
     </style>
 </head>
 <body>
     <p>Hello world!</p>
-    <div class="btn-container">
-        <button class="add-btn" onclick="handleButtonClick()">Add</button>
-    </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         // Initialize Telegram Web App
         Telegram.WebApp.ready();
         
-        // Add haptic feedback
-        function handleButtonClick() {
+        // Initialize and show native button
+        Telegram.WebApp.MainButton
+          .setParams({
+            text: 'ADD',
+            color: Telegram.WebApp.themeParams.button_color,
+            text_color: Telegram.WebApp.themeParams.button_text_color
+          })
+          .onClick(() => {
             Telegram.WebApp.HapticFeedback.impactOccurred('light');
-            // Your button click logic here
-        }
+            Telegram.WebApp.showAlert('Item added!');
+          })
+          .show();
 
-        // Optional: Use native button instead
-        function useNativeButton() {
-            document.querySelector('.add-btn').style.display = 'none';
-            
-            Telegram.WebApp.MainButton
-                .setParams({
-                    text: 'ADD',
-                    color: Telegram.WebApp.themeParams.button_color,
-                    text_color: Telegram.WebApp.themeParams.button_text_color
-                })
-                .onClick(handleButtonClick)
-                .show();
-        }
-        
-        // Uncomment to use native button instead of HTML button
-        // useNativeButton();
+        // Optional: Hide button initially and show when needed
+        // Telegram.WebApp.MainButton.hide();
     </script>
 </body>
 </html>
