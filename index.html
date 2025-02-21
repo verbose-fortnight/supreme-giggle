@@ -1,163 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Tracker</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        :root {
-            --bg-color: var(--tg-theme-bg-color, #ffffff);
-            --text-color: var(--tg-theme-text-color, #000000);
-            --hint-color: var(--tg-theme-hint-color, #707579);
-            --button-color: var(--tg-theme-button-color, #2481cc);
-            --secondary-bg-color: var(--tg-theme-secondary-bg-color, #f4f4f5);
-        }
-
-        body {
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-family: -apple-system, system-ui, sans-serif;
-            margin: 0;
-            padding: 16px;
-            transition: background 0.3s ease;
-        }
-
-        .timer-display {
-            font-size: 48px;
-            text-align: center;
-            margin: 20px 0;
-            font-weight: 500;
-        }
-
-        .task-list {
-            margin-top: 20px;
-        }
-
-        .task-item {
-            background: var(--secondary-bg-color);
-            padding: 12px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .task-input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 12px;
-            border: 1px solid var(--hint-color);
-            background: var(--secondary-bg-color);
-            color: var(--text-color);
-            margin-bottom: 12px;
-        }
+      body {
+        font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
+        background-color: var(--tg-theme-bg-color);
+        color: var(--tg-theme-text-color);
+      }
+      p {
+        color: var(--tg-theme-link-color);
+      }
+      .add-btn {
+        background-color: var(--tg-theme-bg-color);
+        color: var(--tg-theme-text-color);
+        display: inline-flex;
+         align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            border-radius: 10px;
+            border:none;
+      }
     </style>
-</head>
-<body>
-    <div class="timer-display" id="timer">00:00:00</div>
-    <input type="text" class="task-input" id="taskInput" placeholder="Enter task name">
-    <div class="task-list" id="taskList"></div>
+  </head>
+  <body>
+    <p>Hello world!.</p>
+    <button class="add-btn">Add</button>
 
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        const WebApp = window.Telegram.WebApp;
-        let isTracking = false;
-        let startTime = null;
-        let currentTimer = null;
-        let tasks = JSON.parse(localStorage.getItem('tasks') || [];
-
-        // Initialize Telegram Web App
-        WebApp.ready();
-        WebApp.MainButton.setText('START TRACKING');
-        WebApp.MainButton.onClick(toggleTracking);
-        WebApp.BackButton.onClick(handleBack);
-
-        // Load existing tasks
-        renderTasks();
-
-        function toggleTracking() {
-            isTracking = !isTracking;
-            
-            if(isTracking) {
-                startTime = Date.now();
-                currentTimer = setInterval(updateTimer, 1000);
-                WebApp.MainButton.setText('STOP TRACKING').setParams({ color: '#ff5555' });
-                WebApp.BackButton.show();
-            } else {
-                clearInterval(currentTimer);
-                saveTask();
-                WebApp.MainButton.setText('START TRACKING').setParams({ color: WebApp.themeParams.button_color });
-                WebApp.BackButton.hide();
-            }
-        }
-
-        function updateTimer() {
-            const elapsed = Date.now() - startTime;
-            const hours = Math.floor(elapsed / 3600000);
-            const minutes = Math.floor((elapsed % 3600000) / 60000);
-            const seconds = Math.floor((elapsed % 60000) / 1000);
-            
-            document.getElementById('timer').textContent = 
-                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
-
-        function saveTask() {
-            const taskInput = document.getElementById('taskInput');
-            if(taskInput.value.trim()) {
-                tasks.push({
-                    name: taskInput.value,
-                    duration: Date.now() - startTime,
-                    timestamp: Date.now()
-                });
-                localStorage.setItem('tasks', JSON.stringify(tasks));
-                taskInput.value = '';
-                renderTasks();
-            }
-        }
-
-        function renderTasks() {
-            const taskList = document.getElementById('taskList');
-            taskList.innerHTML = tasks.map((task, index) => `
-                <div class="task-item">
-                    <div>
-                        <strong>${task.name}</strong><br>
-                        <small>${new Date(task.timestamp).toLocaleString()}</small>
-                    </div>
-                    <div>
-                        ${formatDuration(task.duration)}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function formatDuration(ms) {
-            const hours = Math.floor(ms / 3600000);
-            const minutes = Math.floor((ms % 3600000) / 60000);
-            return `${hours}h ${minutes}m`;
-        }
-
-        function handleBack() {
-            if(isTracking) {
-                WebApp.showConfirm('Stop tracking and exit?', (confirmed) => {
-                    if(confirmed) toggleTracking();
-                    WebApp.close();
-                });
-            } else {
-                WebApp.close();
-            }
-        }
-
-        // Handle theme changes
-        WebApp.onEvent('themeChanged', () => {
-            document.body.style.backgroundColor = WebApp.themeParams.bg_color;
-            document.body.style.color = WebApp.themeParams.text_color;
-        });
-
-        // Handle viewport changes
-        WebApp.onEvent('viewportChanged', () => {
-            document.documentElement.style.setProperty('--viewport-height', `${WebApp.viewportHeight}px`);
-        });
+      // Initialize Telegram Web App
+      Telegram.WebApp.ready();
     </script>
-</body>
+
+    <!-- Eruda: Console for mobile browsers -->
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
+  </body>
 </html>
