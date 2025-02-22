@@ -12,11 +12,11 @@
       display:flex;
       flex-direction:column;
       gap:2px;
+      background-color:var(--tg-theme-section-bg-color);
     }
     .section {
       display:flex;
       gap:5px;
-      background-color:var(--tg-theme-section-bg-color,darkseagreen);
       padding:10px;
       border-radius:10px;
     }
@@ -40,21 +40,34 @@
     .add-btn {
       min-width:120px;
       height:44px;
+      font-size:17px;
+      font-weight:500;
       border-radius:10px;
       border:none;
       padding:10px;
-      background-color:var(--tg-theme-button-bg-color, #2481cc);
-      color:var(--tg-theme-button-text-color, #fff);
+      background-color:var(--tg-theme-button-color);
+      color:var(--tg-theme-button-text-color);
       transition:0.5s;
     }
     .add-btn:active {
       transform:scale(0.94);
+    }
+    .edit-btn {
+      color:var(--tg-theme-accent-text-color);
+      background:none;
+      border:none;
+      font-size:20px;
     }
     </style>
   </head>
   <body>
     <div class="main-section">
     
+    <div class="edit">
+      <button class="edit-btn">
+        Edit
+      </button>
+    </div>
     
     <div class="section">
       
