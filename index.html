@@ -5,94 +5,77 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
-      body {
-      background-color:var(--tg-theme-bg-color) ;
-      }
-      p {
-      margin:5px;
-      }
-      .section {
-      background-color:var(--tg-theme-section-bg-color);
-      padding:6px;
-      border-radius:4px;
-      }
-      .section-content {
-      display:flex;
-      align-items:center ;
-      }
-      .emoji-icon {
-      font-size:30px;
-      }
-      .title {
-      color:var(--tg-theme-text-color);
-      }
-      .subtitle {
-      color:var(--tg-theme-subtitle-text-color);
-      }
-      .column {
+    body {
+      background-color:var(--tg-theme-secondary-bg-color) ;
+    }
+    .main-section {
       display:flex;
       flex-direction:column;
-      }
-      .title-btn {
-      background:none;
-      border:none;
-      color:var(--tg-theme-accent-text-color);
-      }
-      .add-btn-container {
+      gap:2px;
+    }
+    .section {
+      display:flex;
+      gap:5px;
+      background-color:var(--tg-theme-section-bg-color);
+      padding:10px;
+      border-radius:10px;
+    }
+    .icon {
+      width:44px;
+      height:44px;
+    }
+    .title p {
+      margin:2px;
+    }
+    .btn {
       display:flex;
       justify-content: center;
-      }
-      .add-btn {
-      display:inline-block;
-      height: 44px;
-      min-width: 120px;
-      padding: 0 20px;
-      border-radius: 10px;
+    }
+    .btn button {
+      min-width:120px;
+      height:44px;
+      border-radius:10px;
       border:none;
-      font-size: 17px;
-      font-weight: 500;
-      line-height: 44px;
-      letter-spacing: -0.41px;
-      background-color: var(--tg-theme-button-color,#2481cc);
-      color: var(--tg-theme-button-text-color);
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
-      transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-      }
-      .add-btn:active {
-      transform: scale(0.96);
-      }
+      padding:10px;
+      background-color:var(--tg-theme-button-bg-color);
+      color:var(--tg-theme-button-text-color);
+    }
     </style>
   </head>
   <body>
+    <div class="main-section">
+    
+    
     <div class="section">
-      <div class="section-content">
-        <div class="column">
-          <button class="title-btn">Edit</button>
-        </div>
+      
+      <img class="icon" src="smoking.svg">
+      
+      <div class="title">
+      <p>Smoking</p>
+      <p>a minute ago</p>
       </div>
-      <div class="section-content">
-        <span class="emoji-icon">&#128684;</span>
-        <div class="column">
-          <p class="title">Cigarette</p>
-          <p class="subtitle">Hour:Minute:Second</p>
-        </div>
-      </div>
-      <div class="section-content">
-        <span class="emoji-icon">
-        &#127863;
-        </span>
-        <div class="column">
-          <p class="title">Alcohol</p>
-          <p class="subtitle">Hour:Minute:second</p>
-        </div>
-      </div>
-      <div class="add-btn-container">
-        <button class=add-btn>Add</button>
-      </div>
+      
     </div>
-    <script>
+    
+        <div class="section">
+      <img class="icon" src="glass.svg">
+      
+      <div class="title">
+      <p>Wine</p>
+      <p>a minute ago</p>
+      </div>
+      
+    </div>
+    
+    
+        <div class="btn">
+      <button>You know what it is.</button>
+    </div>
+    
+    
+    </div>
+        <script>
       Telegram.WebApp.ready();
     </script>
-    <script></script>
   </body>
 </html>
