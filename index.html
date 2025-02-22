@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
       body {
-      background-color:var(--tg-theme-secondary-bg-color) ;
+      background-color:var(--tg-theme-bg-color) ;
       }
       p {
       margin:5px;
@@ -24,7 +24,6 @@
       font-size:30px;
       }
       .title {
-      
       color:var(--tg-theme-text-color);
       }
       .subtitle {
@@ -35,22 +34,42 @@
       flex-direction:column;
       }
       .title-btn {
-        background:none;
-        border:none;
-        color:var(--tg-theme-accent-text-color);
+      background:none;
+      border:none;
+      color:var(--tg-theme-accent-text-color);
+      }
+      .add-btn-container {
+      display:flex;
+      justify-content: center;
+      }
+      .add-btn {
+      display:inline-block;
+      height: 44px;
+      min-width: 120px;
+      padding: 0 20px;
+      border-radius: 10px;
+      border:none;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 44px;
+      letter-spacing: -0.41px;
+      background-color: var(--tg-theme-button-color,#2481cc);
+      color: var(--tg-theme-button-text-color);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+      }
+      .add-btn:active {
+      transform: scale(0.96);
       }
     </style>
   </head>
   <body>
     <div class="section">
-           <div class="section-content">
-
+      <div class="section-content">
         <div class="column">
-         <button class="title-btn">Edit</button>
-          
+          <button class="title-btn">Edit</button>
         </div>
-      </div> 
-      
+      </div>
       <div class="section-content">
         <span class="emoji-icon">&#128684;</span>
         <div class="column">
@@ -66,6 +85,9 @@
           <p class="title">Alcohol</p>
           <p class="subtitle">Hour:Minute:second</p>
         </div>
+      </div>
+      <div class="add-btn-container">
+        <button class=add-btn>Add</button>
       </div>
     </div>
     <script>
