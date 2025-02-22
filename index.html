@@ -5,54 +5,59 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
-    p {
+      body {
+      background-color:var(--tg-theme-bg-color) ;
+      }
+      p {
       margin:5px;
-    }
+      }
       .section {
-        background-color:var(--tg-theme-section-bg-color);
-        padding:6px;
-        border-radius:4px;
+      background-color:var(--tg-theme-section-bg-color);
+      padding:6px;
+      border-radius:4px;
       }
       .section-content {
-        display:flex;
-        align-items:center ;
+      display:flex;
+      align-items:center ;
       }
       .emoji-icon {
-        font-size:30px;
+      font-size:30px;
       }
       .title {
-        font-size:20px;
+      font-size:20px;
+      color:var(--tg-theme-text-color);
+      }
+      .subtitle {
+      color:var(--tg-theme-subtitle-text-color);
       }
       .column {
-        display:flex;
-        flex-direction:column;
+      display:flex;
+      flex-direction:column;
       }
     </style>
   </head>
   <body>
     <div class="section">
       <div class="section-content">
-      <span class="emoji-icon">&#128684;</span>
-      <div class="column">
-      <p class="title">Cigarette</p>
-      <p>Hour:Minute:Second</p>
-      </div>
+        <span class="emoji-icon">&#128684;</span>
+        <div class="column">
+          <p class="title">Cigarette</p>
+          <p class="subtitle">Hour:Minute:Second</p>
+        </div>
       </div>
       <div class="section-content">
         <span class="emoji-icon">
-          &#127863;
+        &#127863;
         </span>
         <div class="column">
-        <p class="title">Alcohol</p>
-        <p>Hour:Minute:second</p>
+          <p class="title">Alcohol</p>
+          <p class="subtitle">Hour:Minute:second</p>
         </div>
       </div>
     </div>
-        <script>
-        Telegram.WebApp.ready();
-        </script>
     <script>
-      
+      Telegram.WebApp.ready();
     </script>
+    <script></script>
   </body>
 </html>
