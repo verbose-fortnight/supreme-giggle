@@ -8,11 +8,18 @@
     body {
       background-color:var(--tg-theme-secondary-bg-color) ;
     }
+    .ultra-section {
+      gap:10px;
+      display:flex;
+      flex-direction: column;
+    }
     .main-section {
       display:flex;
       flex-direction:column;
-      gap:2px;
-      background-color:var(--tg-theme-section-bg-color);
+      gap:5px;
+      background-color:var(--tg-theme-section-bg-color, #2481cc);
+      padding:10px;
+    border-radius:10px;
     }
     .section {
       display:flex;
@@ -30,7 +37,7 @@
       color:var(--tg-theme-text-color);
     }
     .subtitle {
-      margin:0;
+      margin:5px 0px;
       color:var(--tg-theme-subtitle-text-color);
     }
     .btn-container {
@@ -45,7 +52,7 @@
       border-radius:10px;
       border:none;
       padding:10px;
-      background-color:var(--tg-theme-button-color);
+      background-color:var(--tg-theme-button-color, #2481cc);
       color:var(--tg-theme-button-text-color);
       transition:0.5s;
     }
@@ -58,9 +65,15 @@
       border:none;
       font-size:20px;
     }
+     .edit {
+       display:flex;
+       justify-content:right ;
+     }
     </style>
   </head>
   <body>
+    <div class="ultra-section">
+      
     <div class="main-section">
     
     <div class="edit">
@@ -91,10 +104,11 @@
     </div>
     
     
-        <div class="btn-container">
-      <button class="add-btn">You know what it is.</button>
     </div>
     
+            <div class="btn-container">
+      <button class="add-btn">You know what it is.</button>
+    </div>
     
     </div>
         <script>
