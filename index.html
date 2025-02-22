@@ -16,7 +16,7 @@
     .section {
       display:flex;
       gap:5px;
-      background-color:var(--tg-theme-section-bg-color);
+      background-color:var(--tg-theme-section-bg-color,darkseagreen);
       padding:10px;
       border-radius:10px;
     }
@@ -24,21 +24,31 @@
       width:44px;
       height:44px;
     }
-    .title p {
-      margin:2px;
+    .text {
+      font-size:18px;
+      margin:0px;
+      color:var(--tg-theme-text-color);
     }
-    .btn {
+    .subtitle {
+      margin:0;
+      color:var(--tg-theme-subtitle-text-color);
+    }
+    .btn-container {
       display:flex;
       justify-content: center;
     }
-    .btn button {
+    .add-btn {
       min-width:120px;
       height:44px;
       border-radius:10px;
       border:none;
       padding:10px;
-      background-color:var(--tg-theme-button-bg-color);
-      color:var(--tg-theme-button-text-color);
+      background-color:var(--tg-theme-button-bg-color, #2481cc);
+      color:var(--tg-theme-button-text-color, #fff);
+      transition:0.5s;
+    }
+    .add-btn:active {
+      transform:scale(0.94);
     }
     </style>
   </head>
@@ -51,8 +61,8 @@
       <img class="icon" src="smoking.svg">
       
       <div class="title">
-      <p>Smoking</p>
-      <p>a minute ago</p>
+      <p class="text">Smoking</p>
+      <p class="subtitle">a minute ago</p>
       </div>
       
     </div>
@@ -61,15 +71,15 @@
       <img class="icon" src="glass.svg">
       
       <div class="title">
-      <p>Wine</p>
-      <p>a minute ago</p>
+      <p class="text">Wine</p>
+      <p class="subtitle">a minute ago</p>
       </div>
       
     </div>
     
     
-        <div class="btn">
-      <button>You know what it is.</button>
+        <div class="btn-container">
+      <button class="add-btn">You know what it is.</button>
     </div>
     
     
