@@ -12,7 +12,13 @@
       color: var(--tg-theme-text-color);
     }
     p {
-      margin:0;
+      margin:5px;
+    }
+    a {
+      text-decoration:none;
+    }
+    .link {
+      color:var(--tg-theme-link-color);
     }
     .content-container {
       background-color: var(--tg-theme-section-bg-color, #eee);
@@ -34,6 +40,7 @@
       color: var(--tg-theme-button-text-color, white);
       border:none;
       border-radius:10px;
+      padding:10px;
     }
     .header-text {
       font-size:18px;
@@ -63,7 +70,7 @@
       <div class="content-item">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-          <button class="button">tempor</button> incididunt ut labore et dolore magna aliqua.
+          <button class="button">tempor</button> incididunt ut labore et dolore magna <a class="link" href="#link">aliqua.</a>
         </p>
       </div>
       </div>
