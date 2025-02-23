@@ -1,245 +1,55 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <style>
-        /* Existing styles */
-        body {
-            background-color: var(--tg-theme-secondary-bg-color);
-            margin: 0;
-            padding: 20px;
-        }
-        .ultra-section {
-            gap: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-        .main-section {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            background-color: var(--tg-theme-section-bg-color, #2481cc);
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .section {
-            display: flex;
-            gap: 15px;
-            padding: 10px;
-            border-radius: 10px;
-            position: relative;
-        }
-        .icon {
-            width: 44px;
-            height: 44px;
-        }
-        .title {
-            flex-grow: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .text {
-            font-size: 18px;
-            margin: 0px;
-            color: var(--tg-theme-text-color);
-        }
-        .subtitle {
-            margin: 5px 0px;
-            color: var(--tg-theme-subtitle-text-color);
-        }
-        .btn-container {
-            display: flex;
-            justify-content: center;
-        }
-        .add-btn {
-            min-width: 120px;
-            height: 44px;
-            font-size: 17px;
-            font-weight: 500;
-            border-radius: 10px;
-            border: none;
-            padding: 10px;
-            background-color: var(--tg-theme-button-color, #2481cc);
-            color: var(--tg-theme-button-text-color);
-            transition: 0.2s;
-        }
-        .add-btn:active {
-            transform: scale(0.94);
-        }
-        .edit-btn {
-            color: var(--tg-theme-accent-text-color);
-            background: none;
-            border: none;
-            font-size: 20px;
-        }
-        .edit {
-            display: flex;
-            justify-content: right;
-        }
-        
-        /* New styles */
-        .delete-btn {
-            color: coral;
-            background: none;
-            border: none;
-            font-weight: 500;
-            display: none;
-            cursor: pointer;
-        }
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal {
-            background: var(--tg-theme-bg-color);
-            width: 90%;
-            max-width: 400px;
-            border-radius: 12px;
-            padding: 20px;
-            animation: modalIn 0.3s ease-out;
-        }
-        .search-input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--tg-theme-hint-color);
-            background: var(--tg-theme-secondary-bg-color);
-            color: var(--tg-theme-text-color);
-            margin-bottom: 15px;
-        }
-        .search-results {
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-        .search-item {
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            background: var(--tg-theme-secondary-bg-color);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        @keyframes modalIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+    body {
+      padding:0;
+      
+      background-color: var(--tg-theme-secondary-bg-color);
+      color: var(--tg-theme-text-color);
+    }
+    p {
+      margin:0;
+    }
+    .content-container {
+      background-color: var(--tg-theme-section-bg-color);
+      padding:0 0 0 15px;
+      border-radius:5px;
+    }
+    .divider {
+      background-color: #ccc;
+      width:100%;
+      height:1px;
+    }
+    .text {
+      padding:10px 15px 10px 0;
+      
+      
+    }
     </style>
-</head>
-<body>
-    <div class="ultra-section">
-        <div class="main-section">
-            <div class="edit">
-                <button class="edit-btn" onclick="toggleEditMode()">Edit</button>
-            </div>
-            
-            <div class="section">
-                <img class="icon" src="smokcing.svg">
-                <div class="title">
-                    <div>
-                        <p class="text">Smoking</p>
-                        <p class="subtitle">a minute ago</p>
-                    </div>
-                    <button class="delete-btn" onclick="deleteItem(this)">Delete</button>
-                </div>
-            </div>
-            
-            <div class="section">
-                <img class="icon" src="gladss.svg">
-                <div class="title">
-                    <div>
-                        <p class="text">Wine</p>
-                        <p class="subtitle">a minute ago</p>
-                    </div>
-                    <button class="delete-btn" onclick="deleteItem(this)">Delete</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="btn-container">
-            <button class="add-btn" onclick="showSearchModal()">You know what it is.</button>
-        </div>
+  </head>
+  <body>
+    <div class="content-container">
+      
+      <div class="text">
+      <div class="content-item">
+        <p>Lorem Ipsum.</p>
+      </div>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="text">
+      <div class="content-item">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      </div>
+      
     </div>
-
-    <!-- Search Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <input type="text" class="search-input" placeholder="Search..." id="searchInput">
-            <div class="search-results" id="searchResults">
-                <!-- Search results will be populated here -->
-            </div>
-        </div>
-    </div>
-
-    <script>
-        Telegram.WebApp.ready();
-        Telegram.WebApp.expand();
-
-        let isEditMode = false;
-        const sampleItems = ['Alcohol', 'Smoking', 'Gambling', 'Social Media', 'Caffeine'];
-
-        function toggleEditMode() {
-            isEditMode = !isEditMode;
-            document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.style.display = isEditMode ? 'block' : 'none';
-            });
-            document.querySelector('.edit-btn').textContent = isEditMode ? 'Done' : 'Edit';
-            Telegram.WebApp.HapticFeedback.impactOccurred('light');
-        }
-
-        function deleteItem(btn) {
-            btn.closest('.section').remove();
-            Telegram.WebApp.HapticFeedback.impactOccurred('rigid');
-        }
-
-        function showSearchModal() {
-            const modal = document.getElementById('modalOverlay');
-            modal.style.display = 'flex';
-            populateSearchResults('');
-            Telegram.WebApp.HapticFeedback.impactOccurred('light');
-        }
-
-        function populateSearchResults(query) {
-            const results = document.getElementById('searchResults');
-            const filtered = sampleItems.filter(item => 
-                item.toLowerCase().includes(query.toLowerCase())
-            );
-            
-            results.innerHTML = filtered.map(item => `
-                <div class="search-item" onclick="selectItem('${item}')">
-                    ${item}
-                </div>
-            `).join('');
-        }
-
-        function selectItem(item) {
-            // Add your item creation logic here
-            Telegram.WebApp.showAlert(`Selected: ${item}`);
-            closeModal();
-        }
-
-        function closeModal() {
-            document.getElementById('modalOverlay').style.display = 'none';
-        }
-
-        // Event listeners
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            populateSearchResults(e.target.value);
-        });
-
-        document.getElementById('modalOverlay').addEventListener('click', (e) => {
-            if(e.target === modalOverlay) closeModal();
-        });
-    </script>
-</body>
+  </body>
 </html>
