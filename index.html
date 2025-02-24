@@ -7,12 +7,12 @@
     <style>
     body {
       font: 14px/18px "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, Verdana, sans-serif;
-      padding:0;
+      padding:5px;
       background-color: var(--tg-theme-secondary-bg-color);
       color: var(--tg-theme-text-color);
     }
     p {
-      margin:5px;
+      margin:2px;
     }
     a {
       text-decoration:none;
@@ -36,11 +36,29 @@
       flex-direction: column;
     }
     .button {
-      background-color: var(--tg-theme-button-color, #2481cc) ;
-      color: var(--tg-theme-button-text-color, white);
-      border:none;
+      transition:0.5s;
+    }
+    
+    .add-btn, .button {
       border-radius:10px;
-      padding:10px;
+      border:none;
+      background-color:var(--tg-theme-button-color,#2481cc);
+      color:var(--tg-theme-button-text-color, white);
+      padding:15px;
+    }
+    .add-btn-container {
+      display:flex;
+      justify-content:center;
+      margin:8px 0 0 0;
+    }
+    .add-btn {
+      width:100%;
+      font-size:17px;
+      transition:0.5s;
+    }
+    .add-btn:active, .button:active {
+      transform:scale(0.95);
+      opacity:0.5;
     }
     .header-text {
       font-size:18px;
@@ -51,6 +69,7 @@
     </style>
   </head>
   <body>
+    
     <div class="content-container">
       
       <div class="text">
@@ -76,5 +95,12 @@
       </div>
       
     </div>
+    
+<div class="add-btn-container">
+  <button class="add-btn">
+    Lorem
+  </button>
+</div>
+    
   </body>
 </html>
